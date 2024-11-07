@@ -1,0 +1,7 @@
+echo "# ai-old-img-restore" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/zeshansaid/ai-old-img-restore.git
+git push -u origin main
