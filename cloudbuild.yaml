@@ -10,14 +10,14 @@ steps:
     args: [
           'build',
           '-t',
-          'gcr.io/stone-composite-436518-s3/img-enhancer-ai',
+          'gcr.io/stone-composite-436518-s3/old-img-restore-ai',
           '.'
           ]
   
   # Step 3: Push the Docker image to Google Container Registry
   - name: 'gcr.io/cloud-builders/docker'
-    dir: 'img-enhancer-ai'
-    args: ['push', 'gcr.io/stone-composite-436518-s3/img-enhancer-ai']
+    dir: 'old-img-restore-ai'
+    args: ['push', 'gcr.io/stone-composite-436518-s3/old-img-restore-ai']
 
   
   
@@ -27,9 +27,9 @@ steps:
       - 'gcloud'
       - 'run'
       - 'deploy'
-      - 'img-enhancer-ai'
+      - 'old-img-restore-ai'
       - '--image'
-      - 'gcr.io/stone-composite-436518-s3/img-enhancer-ai'
+      - 'gcr.io/stone-composite-436518-s3/old-img-restore-ai'
       - '--platform'
       - 'managed'
       - '--region'
