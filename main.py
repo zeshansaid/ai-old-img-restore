@@ -74,7 +74,7 @@ channel_multiplier = 2
 model_name = 'GFPGANv1.3'
 url = 'https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth'
 # determine model paths
-model_path = os.path.join('experiments/pretrained_models', model_name + '.pth')
+model_path = os.path.join('/app/experiments/pretrained_models', model_name + '.pth')
 if not os.path.isfile(model_path):
     model_path = os.path.join('gfpgan/weights', model_name + '.pth')
 if not os.path.isfile(model_path):
@@ -109,11 +109,7 @@ restore_model = networks.UNet(
 # Get the base path of the script
 base_path = os.path.dirname(__file__)
 # Define the checkpoint path relative to the base path
-checkpoint_path = os.path.join(base_path, "Global/checkpoints/detection/FT_Epoch_latest.pt")
-
-# If running in a Docker container, use the /app/ prefix
-if os.environ.get("DOCKER", False):
-    checkpoint_path = os.path.join("/app", checkpoint_path)
+checkpoint_path = os.path.join(base_path, "/app/Global/checkpoints/detection/FT_Epoch_latest.pt")
 
 if not os.path.exists(checkpoint_path):
     print("Model file not found. Downloading from link...")
