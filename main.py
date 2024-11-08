@@ -103,13 +103,11 @@ restore_model = networks.UNet(
         sync_bn=True,
         antialiasing=True,
     )
-## load model
-# checkpoint_path = os.path.join(os.path.dirname(__file__), "Global/checkpoints/detection/FT_Epoch_latest.pt")
 
 # Get the base path of the script
 base_path = os.path.dirname(__file__)
 # Define the checkpoint path relative to the base path
-checkpoint_path = os.path.join(base_path, "/app/Global/checkpoints/detection/FT_Epoch_latest.pt")
+checkpoint_path = os.path.join(base_path, "Global/checkpoints/detection/FT_Epoch_latest.pt")
 
 if not os.path.exists(checkpoint_path):
     print("Model file not found. Downloading from link...")
